@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace FunkcjeSkrotu
 {
-    class md5Class
+    class SHA1
     {
-
-
-        public static string MD5Hash(string input)
+        public static string SHA1Hash(string input)
         {
             StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
-            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+            SHA1CryptoServiceProvider sha1provider = new SHA1CryptoServiceProvider();
+            byte[] bytes = sha1provider.ComputeHash(new UTF8Encoding().GetBytes(input));
 
             for (int i = 0; i < bytes.Length; i++)
             {
@@ -23,6 +21,5 @@ namespace FunkcjeSkrotu
             }
             return hash.ToString();
         }
-
     }
 }
